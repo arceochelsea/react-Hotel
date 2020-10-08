@@ -26,10 +26,10 @@ function bookedRooms(numFloors, numRooms) {
                 price: cost}) 
     }
      allRooms.push(newArr)
-        newArr = []
+     //   newArr = []
 }
 console.log(allRooms)
 }
 
-bookedRooms(2,4)
+bookedRooms(2, 4)
 
