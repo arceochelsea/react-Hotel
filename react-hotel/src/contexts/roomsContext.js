@@ -1,16 +1,22 @@
-import React, {useState, createContext} from 'react'
-import roomAlgorithm from '../utils/roomAlgorithm';
-import 
+import React, {useState, createContext, useEffect} from 'react'
+import { rentARoom } from '../utils/roomAlgorithm';
+import { get, set } from '../utils/localStorage';
 
-export default function roomsContext() {
+const RoomContext = createContext();
 
-    const rentRoomProvider = (props) => {
-        const [rooms, setRooms] = useState
-    }
+export default function RoomContextProvider(props) {
+
+    const [rooms, setRooms] = useState(() => {
+        return get('rooms', rentARoom(4, 4))
+    })
+
+    useEffect( () => {
+        set('rooms', JSON.stringify(rooms))
+    }, [rooms])
 
     return (
-        <div>
-            
-        </div>
+        <RoomContext.Provider value={{rooms: rooms, setRooms: setRooms}}>
+        {props.children}
+        </RoomContext.Provider>
     )
 }

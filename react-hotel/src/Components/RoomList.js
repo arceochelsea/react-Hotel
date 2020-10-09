@@ -1,18 +1,16 @@
 import React, {useState} from 'react'
+import { roomsContext } from '../contexts/roomsContext';
 
-
-export default function RoomList() {
-
-    const RoomList = () => {
-        const [rooms, setRooms] = useState([
-            {}
-        ])
-    }
-
-
-    return (
-        <div>
-            
+const RoomList = () => {
+    useContext()
+    return ( 
+        <div className='room-list'>
+            <ul>
+                <li></li>
+            </ul>
         </div>
-    )
+     );
 }
+
+
+export default RoomList;

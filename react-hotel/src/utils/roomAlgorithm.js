@@ -10,26 +10,48 @@
 // Room 202 = ( 50*2 ) + ( 10*2 - 10 ) + 45 = $155
 // Room 301 = ( 50*3 ) + ( 10*1 - 10 ) + 45 = $195
 
-function bookedRooms(numFloors, numRooms) {
+// function bookedRooms(numFloors, numRooms) {
 
-    let allRooms = []
-    let newArr = []
+//     let allRooms = []
+//     let newArr = []
 
-    for (let i = 1; i <= numFloors; i++) {
-        for (let j = 1; j <= numRooms; j++) {
-            roomNum = i * 100 + j
-            renter = null
-            cost = ((50 * i) + ((10 * j) - 10) + 45)
-            newArr.push({
-                room: roomNum,
-                renter: null,
-                price: cost}) 
+//     for (let i = 1; i <= numFloors; i++) {
+//         for (let j = 1; j <= numRooms; j++) {
+//            let roomNum = i * 100 + j
+//            let renter = null
+//            let cost = ((50 * i) + ((10 * j) - 10) + 45)
+//             newArr.push({
+//                 room: roomNum,
+//                 renter: null,
+//                 price: cost}) 
+//     }
+//      allRooms.push(newArr)
+//      return allRooms
+//     }
+// }
+
+
+// module.exports = bookedRooms;
+
+module.exports = {
+    rentARoom: (numFloors, numRooms) => {
+        let allRooms = [];
+        for (let i = 1; i <= numFloors; i++) {
+            for (let j = 1; j <= numRooms; j++) {
+                allRooms.push({room: (i)*100+j,
+                               price: 50*i + (10*j-10) + 45,
+                               renter: null
+                })
+            }
+        }
+        let chunkedArr = [];
+        let index = 0;
+        while (index < allRooms.length) {
+            chunkedArr.push(allRooms.slice(index, numRooms+index))
+            index += numRooms;
+        }
+        allRooms = chunkedArr;
+        console.log(allRooms)
+        return allRooms;
     }
-     allRooms.push(newArr)
-     //   newArr = []
 }
-console.log(allRooms)
-}
-
-bookedRooms(2, 4)
-

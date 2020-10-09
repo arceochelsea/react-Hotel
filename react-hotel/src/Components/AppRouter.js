@@ -8,19 +8,19 @@ export default function AppRouter() {
 
     return (
         <div>
-        <BrowserRouter>
-        <Switch>
-            <Route exact path='/'>
-            <Home />
-            </Route>
-            <Route exact path='/rent'>
-            <Rent />
-            </Route>
-            <Route exact path='/return'>
-            <Return />
-            </Route>
-        </Switch>
-        </BrowserRouter>
+            <BrowserRouter>
+                <Switch>
+                    <Route exact path='/'>
+                    <Home />
+                    </Route>
+                    <Route exact path='/rent'>
+                    <Rent />
+                    </Route>
+                    <Route exact path='/return'>
+                    <Return />
+                    </Route>
+                </Switch>
+            </BrowserRouter>
         </div>
     )
 }
