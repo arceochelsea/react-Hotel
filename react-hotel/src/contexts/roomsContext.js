@@ -1,5 +1,5 @@
 import React, {useState, createContext, useEffect} from 'react'
-import { rentARoom } from '../utils/roomAlgorithm';
+import { bookARoom } from '../utils/roomAlgorithm';
 import { get, set } from '../utils/localStorage';
 
 const RoomContext = createContext();
@@ -7,7 +7,7 @@ const RoomContext = createContext();
 export default function RoomContextProvider(props) {
 
     const [rooms, setRooms] = useState(() => {
-        return get('rooms', rentARoom(4, 4))
+        return get('rooms', bookARoom(4, 4))
     })
 
     useEffect( () => {

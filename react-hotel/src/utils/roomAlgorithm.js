@@ -34,7 +34,7 @@
 // module.exports = bookedRooms;
 
 module.exports = {
-    rentARoom: (numFloors, numRooms) => {
+    bookARoom: (numFloors, numRooms) => {
         let allRooms = [];
         for (let i = 1; i <= numFloors; i++) {
             for (let j = 1; j <= numRooms; j++) {
