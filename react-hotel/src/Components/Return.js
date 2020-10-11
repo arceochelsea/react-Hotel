@@ -1,5 +1,4 @@
 import React from 'react'
-import {bookARoom} from '../utils/roomAlgorithm';
 
 export default function Return() {
     return (
