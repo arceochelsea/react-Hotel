@@ -24,7 +24,7 @@ export default function Rent() {
                     return (<li key={rooms.renter}>{rooms.room}</li>)
                 })}
             </ul>
-            <button onClick={rentRoom}type='submit'>Express Book</button> 
+            <button onClick={rentRoom} type='submit'>Express Book</button> 
         </div>
     )
 }
