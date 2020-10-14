@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import RoomContext from '../contexts/roomsContext';
+import { RoomContext } from '../contexts/roomsContext';
 import Form from './Form';
 
 export default function Return() {
