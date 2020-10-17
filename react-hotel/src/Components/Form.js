@@ -3,7 +3,7 @@ import React from 'react'
 export default function Form() {
     return (
         <div>
-            <input type='text' placeholder='Guest Name'></input>
+            <input id='guestName' type='text' placeholder='Guest Name'></input>
         </div>
     )
 }

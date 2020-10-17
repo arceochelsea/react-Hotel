@@ -6,29 +6,39 @@ export default function Rent() {
 
     const {rooms, setRooms} = useContext(RoomContext); //fixed by exporting the context properly 
     console.log(RoomContext)
+    // const flatArr = rooms.flat(); this aint working yoooo
+    // console.log(flatArr)
 
     const rentRoom = (e) => {
         console.log('You are trying to rent a room')
+        const id = e.target.id;
+        const guestName = document.getElementById('guestName').value.toLowerCase().trim()
+
+        if (guestName == null) 
+        return prompt('Please Enter Name!')
+
+        //rooms.map is not a function
 
     }
 
     //filter first then map over below!
     //conditional inside map func or filter before map over. if room.renter = null then return list item else return null 
-    // if (room.renter === null) {
+    // if (room.renter !== null) {
     //     return (<li key={rooms.renter}>{rooms.room}</li>)
     // } else {
     //     return null
     // }
 
     // room.renter == null ? <li key={rooms.renter}>{rooms.rooms}</li> : null
+    //copy of a obj???/ clone it???? 
 
     return (
         <div className='rent-list'>
             <h1>renting here</h1>
             <Form />
             <ul>
-                {rooms.map(room => {
-                    return (<li key={rooms.renter}>{rooms.room}</li>)
+                {rooms.map(rooms => {
+                    return <li>{rooms.rooms}{rooms.price}</li>
                 })}
             </ul>
             <button onClick={rentRoom} type='submit'>Express Book</button> 

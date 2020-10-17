@@ -7,7 +7,8 @@ export const RoomContext = createContext();
 export default function RoomContextProvider(props) {
 
     const localStorageRoom = localStorage.getItem('rooms')
-    const initalState = localStorageRoom !== null ? JSON.parse(localStorageRoom) : bookedRooms(4, 4)
+    console.log(localStorageRoom)
+    const initalState = localStorageRoom === null ? bookedRooms(4, 4) : JSON.parse(localStorageRoom)
     const [rooms, setRooms] = useState(initalState) 
 
     useEffect( () => {
