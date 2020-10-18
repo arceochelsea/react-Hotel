@@ -4,7 +4,7 @@ import Form from './Form';
 
 export default function Rent() {
 
-    const {rooms, setRooms} = useContext(RoomContext); //fixed by exporting the context properly 
+    const {rooms, setRooms} = useContext(RoomContext);
     console.log(RoomContext)
     // const flatArr = rooms.flat(); this aint working yoooo
     // console.log(flatArr)
@@ -37,9 +37,14 @@ export default function Rent() {
             <h1>renting here</h1>
             <Form />
             <ul>
-                {rooms.map(rooms => {
-                    return <li>{rooms.rooms}{rooms.price}</li>
-                })}
+            {rooms.map(room => {
+                return room.map(room => {
+                    if (room.renter === null) {
+                        return <li key={rooms.room}>{rooms.room} {rooms.price}</li>
+                    }
+                })
+            })}    
+
             </ul>
             <button onClick={rentRoom} type='submit'>Express Book</button> 
         </div>
