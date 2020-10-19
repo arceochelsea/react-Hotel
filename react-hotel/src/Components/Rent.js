@@ -9,7 +9,7 @@ export default function Rent() {
     const flatArr = rooms.flat(); 
     console.log(flatArr)
 
-    const checkOut = () => {
+    const returnBtn = () => {
         window.location.href = '/return'
     }
 
@@ -18,7 +18,6 @@ export default function Rent() {
     }
 
     const rentRoom = (e) => {
-        //console.log('You are trying to rent a room')
         const guestName = document.getElementById('guestName').value.toLowerCase().trim()
         console.log(guestName);
         const newFlatArr = [...flatArr] 
@@ -28,20 +27,11 @@ export default function Rent() {
             if (newFlatArr[i].renter === null) {
                 newFlatArr[i].renter = guestName;
                 setRooms(newFlatArr)
+                document.getElementById('guestName').value = '';
                 break 
             }
         }
     }
-
-    //filter first then map over below!
-    //conditional inside map func or filter before map over. if room.renter = null then return list item else return null 
-    // if (room.renter !== null) {
-    //     return (<li key={rooms.renter}>{rooms.room}</li>)
-    // } else {
-    //     return null
-    // }
-
-    // room.renter == null ? <li key={rooms.renter}>{rooms.rooms}</li> : null
 
     return (
         <div className='rent-list'>
@@ -51,12 +41,12 @@ export default function Rent() {
             <ul>
             {flatArr.map(room => {
                     if (room.renter === null) {
-                        return <li key={room.room}>{room.room} ${room.price}</li>
+                        return <li key={room.room}>Room: {room.room}  ${room.price}</li>
                     }
             })}    
             </ul>
             <button onClick={rentRoom} type='submit'>Express Book</button> 
-            <button text='Return A Room!' onClick={checkOut}>Return</button>
+            <button text='Return A Room!' onClick={returnBtn}>Return</button>
             <button text='Home!' onClick={homeBtn}>Home</button>
         </div>
     )

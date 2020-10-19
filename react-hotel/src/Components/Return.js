@@ -9,7 +9,7 @@ export default function Return() {
     const flatArr = rooms.flat(); 
     console.log(flatArr)
 
-    const checkIn = () => {
+    const rentBtn = () => {
         window.location.href = '/rent'
     }
 
@@ -18,17 +18,22 @@ export default function Return() {
     }
 
     const returnRoom = (e) => {
-        //console.log('You are trying to return a room');
+        console.log('You are trying to return a room');
         const guestName = document.getElementById('guestName').value.toLowerCase().trim()
         console.log(guestName);
         const newFlatArr = [...flatArr] 
 
         for (let i = 0; i < newFlatArr.length; i++) {
-            console.log(document.getElementById('roomNum').value);
-            if (newFlatArr[i].room === document.getElementById('roomNum').value) {
-                if (newFlatArr[i].renter === guestName ) {
+           // console.log(document.getElementById('roomNum').value);
+            if (newFlatArr[i].room == document.getElementById('roomNum').value) {
+                if (newFlatArr[i].renter == guestName ) {
                     newFlatArr[i].renter = null;
                     setRooms(newFlatArr)
+                    document.getElementById('guestName').value = '';
+                    document.getElementById('roomNum').value = '';
+                    alert('Thank You For Staying At The CareerDevs Hotel!')
+            } else {
+                alert('Guest Name is Invalid')
             } 
             } 
         }
@@ -43,12 +48,12 @@ export default function Return() {
             <ul>
             {flatArr.map(room => {
                     if (room.renter !== null) {
-                        return <li key={room.room}>{room.room} ${room.price}</li>
+                        return <li key={room.room}>Room:{room.room}  ${room.price}</li>
                     }
             })}    
             </ul>
             <button onClick={returnRoom} type='submit'>Express Checkout</button>
-            <button text='Rent A Room!' onClick={checkIn}>Rent</button> 
+            <button text='Rent A Room!' onClick={rentBtn}>Rent</button> 
             <button text='Home!' onClick={homeBtn}>Home</button>   
         </div>
     )
