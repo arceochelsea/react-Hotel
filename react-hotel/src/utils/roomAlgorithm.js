@@ -10,7 +10,7 @@
 // Room 202 = ( 50*2 ) + ( 10*2 - 10 ) + 45 = $155
 // Room 301 = ( 50*3 ) + ( 10*1 - 10 ) + 45 = $195
 
-function bookedRooms(numFloors, numRooms) {
+export default function bookedRooms(numFloors, numRooms) {
 
     let allRooms = []
 
@@ -30,7 +30,6 @@ function bookedRooms(numFloors, numRooms) {
      return allRooms
 }
 
-module.exports = bookedRooms;
 
 // module.exports = {
 //     bookARoom: (numFloors, numRooms) => {

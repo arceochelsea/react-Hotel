@@ -6,19 +6,23 @@ export default function Rent() {
 
     const {rooms, setRooms} = useContext(RoomContext);
     console.log(RoomContext)
-    // const flatArr = rooms.flat(); this aint working yoooo
-    // console.log(flatArr)
+    const flatArr = rooms.flat(); 
+    console.log(flatArr)
 
     const rentRoom = (e) => {
         console.log('You are trying to rent a room')
-        const id = e.target.id;
         const guestName = document.getElementById('guestName').value.toLowerCase().trim()
+        console.log(guestName);
+        const newFlatArr = [...flatArr] 
 
-        if (guestName == null) 
-        return prompt('Please Enter Name!')
-
-        //rooms.map is not a function
-
+        let i = 0;
+        for (let i = 0; i < newFlatArr.length; i++) {
+            if (newFlatArr[i].renter === null) {
+                newFlatArr[i].renter = guestName;
+                setRooms(newFlatArr)
+                break 
+            }
+        }
     }
 
     //filter first then map over below!
@@ -30,21 +34,17 @@ export default function Rent() {
     // }
 
     // room.renter == null ? <li key={rooms.renter}>{rooms.rooms}</li> : null
-    //copy of a obj???/ clone it???? 
 
     return (
         <div className='rent-list'>
             <h1>renting here</h1>
             <Form />
             <ul>
-            {rooms.map(room => {
-                return room.map(room => {
+            {flatArr.map(room => {
                     if (room.renter === null) {
-                        return <li key={rooms.room}>{rooms.room} {rooms.price}</li>
+                        return <li key={room.room}>{room.room} ${room.price}</li>
                     }
-                })
             })}    
-
             </ul>
             <button onClick={rentRoom} type='submit'>Express Book</button> 
         </div>

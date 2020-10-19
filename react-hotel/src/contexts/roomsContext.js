@@ -1,5 +1,5 @@
 import React, {useState, createContext, useEffect} from 'react'
-import { bookedRooms } from '../utils/roomAlgorithm';
+import bookedRooms from '../utils/roomAlgorithm';
 import { set } from '../utils/localStorage';
 
 export const RoomContext = createContext();
@@ -7,8 +7,8 @@ export const RoomContext = createContext();
 export default function RoomContextProvider(props) {
 
     const localStorageRoom = localStorage.getItem('rooms')
-    console.log(localStorageRoom)
-    const initalState = localStorageRoom === null ? bookedRooms(4, 4) : JSON.parse(localStorageRoom)
+    console.log(bookedRooms(4, 4))
+    const initalState = localStorageRoom === null ? bookedRooms(4, 4) : JSON.parse(localStorage.getItem('rooms'))
     const [rooms, setRooms] = useState(initalState) 
 
     useEffect( () => {
