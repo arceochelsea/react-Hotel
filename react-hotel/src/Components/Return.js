@@ -13,8 +13,12 @@ export default function Return() {
         window.location.href = '/rent'
     }
 
+    const homeBtn = () => {
+        window.location.href = '/'
+    }
+
     const returnRoom = (e) => {
-        console.log('You are trying to return a room');
+        //console.log('You are trying to return a room');
         const guestName = document.getElementById('guestName').value.toLowerCase().trim()
         console.log(guestName);
         const newFlatArr = [...flatArr] 
@@ -32,7 +36,8 @@ export default function Return() {
 
     return (
         <div className='return-list'>
-            <h1>returning here</h1>
+            <h1>Return Room(s) Here</h1>
+            <h5>please provide guest name and room number</h5>
             <Form />
             <input id='roomNum' type='number' placeholder='Room Number'></input>
             <ul>
@@ -43,7 +48,8 @@ export default function Return() {
             })}    
             </ul>
             <button onClick={returnRoom} type='submit'>Express Checkout</button>
-            <button text='Rent A Room!' onClick={checkIn}>Rent</button>  
+            <button text='Rent A Room!' onClick={checkIn}>Rent</button> 
+            <button text='Home!' onClick={homeBtn}>Home</button>   
         </div>
     )
 }

@@ -9,7 +9,6 @@ function App() {
     <AppRouter />
     </RoomsContextProvider>
     </div>
-
   );
 }
 

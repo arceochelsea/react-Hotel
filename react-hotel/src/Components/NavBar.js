@@ -15,7 +15,7 @@ export default function NavBar() {
     return (
         <div>
         <h1>Welcome to the Career Devs Hotel!</h1>
-        <h4>if ya know whats good for ya dont stay</h4>
+        <h5>(if ya know whats good for ya don't stay)</h5>
         <button text='Rent A Room!' onClick={checkIn}>Rent</button>  
         <button text='Return A Room!' onClick={checkOut}>Return</button>
         </div>

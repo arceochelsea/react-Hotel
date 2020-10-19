@@ -13,8 +13,12 @@ export default function Rent() {
         window.location.href = '/return'
     }
 
+    const homeBtn = () => {
+        window.location.href = '/'
+    }
+
     const rentRoom = (e) => {
-        console.log('You are trying to rent a room')
+        //console.log('You are trying to rent a room')
         const guestName = document.getElementById('guestName').value.toLowerCase().trim()
         console.log(guestName);
         const newFlatArr = [...flatArr] 
@@ -41,7 +45,8 @@ export default function Rent() {
 
     return (
         <div className='rent-list'>
-            <h1>renting here</h1>
+            <h1>Rent Room(s) Here</h1>
+            <h5>please enter your name below to rent next available room</h5>
             <Form />
             <ul>
             {flatArr.map(room => {
@@ -52,6 +57,7 @@ export default function Rent() {
             </ul>
             <button onClick={rentRoom} type='submit'>Express Book</button> 
             <button text='Return A Room!' onClick={checkOut}>Return</button>
+            <button text='Home!' onClick={homeBtn}>Home</button>
         </div>
     )
 }
