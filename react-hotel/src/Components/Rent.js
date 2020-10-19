@@ -9,6 +9,10 @@ export default function Rent() {
     const flatArr = rooms.flat(); 
     console.log(flatArr)
 
+    const checkOut = () => {
+        window.location.href = '/return'
+    }
+
     const rentRoom = (e) => {
         console.log('You are trying to rent a room')
         const guestName = document.getElementById('guestName').value.toLowerCase().trim()
@@ -47,6 +51,7 @@ export default function Rent() {
             })}    
             </ul>
             <button onClick={rentRoom} type='submit'>Express Book</button> 
+            <button text='Return A Room!' onClick={checkOut}>Return</button>
         </div>
     )
 }
